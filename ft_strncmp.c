@@ -1,0 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/08 16:06:02 by lumaret           #+#    #+#             */
+/*   Updated: 2023/11/09 14:07:47 by lumaret          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int ft_strncmp(const char* s1, const char* s2, size_t n)
+{
+    size_t i;
+
+    i = 0;
+    if (n == 0)
+        return (0);
+    while ((s1 || s2) && (i < n))
+    {
+        if (s1[i] != s2[i])
+            return (*(unsigned char*)(s1 + i) - *(unsigned char*)(s2 + i));
+        i++;
+    }
+    return (0);
+}
+
