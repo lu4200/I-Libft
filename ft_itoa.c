@@ -3,61 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:49:27 by lucas             #+#    #+#             */
-/*   Updated: 2023/11/09 14:31:52 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/13 11:35:49 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	len_nbr(int nb)
+static int	ft_count_digit(int n)
 {
 	int	count;
-	
-	if (nb == 0)
-		return 1;
+
 	count = 0;
-	if (nb < 0)
+	if (n < 0)
 	{
-		nb *=-1;
-		count ++;
-	}
-	while(nb > 0)
-	{
+		n = -n;
 		count++;
-		nb /= 10;
+	}
+	while (n != 0)
+	{
+		n = n / 10;
+		count++;
 	}
 	return (count);
 }
 
-char	*ft_itoa(int nbr)
+static void	ft_strrev(char *str)
 {
-	int	nb_len = 0;
-	int i = 0;
-	char	*dest;
-	int nb;
+	char	temp;
+	int		i;
+	int		end;
 
-	nb = nbr;
-	nb_len = len_nbr(nb);
-	dest = (char *)malloc(sizeof(char) * nb_len + 1);
-	if (!dest)
-		return (NULL);
-	if(nb < 0)
+	i = 0;
+	end = ft_strlen(str) - 1;
+	if (str[i] == '-')
+		i++;
+	while (str[i] && i < end)
 	{
-		dest[0] = '-';
-		nb *= -1;
+		temp = str[i];
+		str[i] = str[end];
+		str[end] = temp;
+		i++;
+		end--;
 	}
-	i = nb_len + 2;
-	while (nb > 0)
-	{
-		dest[i--] = nb % 10 + '0';
-		nb /= 10;
-	}
-	return (dest);
 }
 
+char	*ft_itoa(int n)
+{
+	char	*tab;
+	int		i;
+
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	tab = (char *)malloc(sizeof(char) * (ft_count_digit(n) + 1));
+	if (!tab)
+		return (NULL);
+	i = 0;
+	if (n < 0)
+	{
+		n = -n;
+		tab[i++] = '-';
+	}
+	while (n)
+	{
+		tab[i++] = (n % 10) + '0';
+		n = n / 10;
+	}
+	tab[i] = '\0';
+	ft_strrev(tab);
+	return (tab);
+}
 #include <stdio.h>
 int main() {
 	
