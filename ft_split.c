@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 16:37:49 by lucas             #+#    #+#             */
-/*   Updated: 2023/11/07 19:12:46 by lucas            ###   ########.fr       */
+/*   Updated: 2023/11/28 15:01:47 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	is_sep(char c, char *charset)
+int static	is_sep(char c, char *charset)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	is_sep(char c, char *charset)
 	return (0);
 }
 
-int	count_size(char *str, char *charset)
+int	static count_size(char *str, char *charset)
 {
 	int	i;
 	int	sep;
@@ -44,7 +44,7 @@ int	count_size(char *str, char *charset)
 	return (count);
 }
 
-int	next_split(char *str, char *charset)
+int static next_split(char *str, char *charset)
 {
 	int	i;
 
@@ -58,7 +58,7 @@ int	next_split(char *str, char *charset)
 	return (i);
 }
 
-char	*ft_strndup(char *str, unsigned int n)
+char static *ft_strndup(char *str, unsigned int n)
 {
 	unsigned int	i;
 	char			*new;

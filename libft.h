@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:07:03 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/19 23:00:18 by lucas            ###   ########.fr       */
+/*   Updated: 2023/11/28 16:12:13 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+typedef struct s_list {
+    void *content;
+    struct s_list *next;
+} t_list;
 
 int     ft_isalpha(int c);
 int     ft_isalnum(int c);
@@ -50,6 +55,12 @@ char*   ft_strnstr(const char *haystack, const char *needle, size_t len);
 char*   ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char*   ft_substr(char const *s, unsigned int start, size_t len);
 char*   ft_strtrim(char const *s1, char const *set);
+int     ft_lstsize(t_list *lst);
+char**  ft_split(char *str, char *charset);
+void    ft_lstdelone(t_list *lst, void (*del)(void *));
+void    ft_lstclear(t_list **lst, void (*del)(void *));
+void    ft_lstadd_back(t_list **lst, t_list *new);
+t_list* ft_lstlast(t_list *lst);
 
 
 #endif

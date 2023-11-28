@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:49:27 by lucas             #+#    #+#             */
-/*   Updated: 2023/11/13 11:35:49 by lucas            ###   ########.fr       */
+/*   Updated: 2023/11/28 15:02:19 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	*ft_itoa(int n)
 #include <stdio.h>
 int main() {
 	
-    int number = 123124; // Remplacez 42 par le nombre que vous souhaitez convertir en chaîne
+    int number = 123124; 
     printf("Le nombre en tant que chaîne de caractères : %s\n", ft_itoa(number));
 
     return 0;

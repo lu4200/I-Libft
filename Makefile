@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lucas <lucas@student.42.fr>                +#+  +:+       +#+         #
+#    By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 13:29:33 by lumaret           #+#    #+#              #
-#    Updated: 2023/11/19 22:59:12 by lucas            ###   ########.fr        #
+#    Updated: 2023/11/28 16:13:42 by lumaret          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ OBJS 	= 	$(SRCS:.c=.o)
 
 NAME	= 	libft.a
 
-CC		= 	clang
+CC = clang
+
 CFLAGS	= 	-Wall -Wextra -Werror
 
 AR		= 	ar rc
@@ -48,13 +49,8 @@ test:		$(NAME) bonus
 all:		$(NAME)
 
 clean:
-			$(RM) $(OBJS) $(OBJM) $(OBJB)
+			$(RM) $(OBJS) $(OBJM)
 
 fclean:		clean
 			$(RM) $(NAME) $(TNAME)
-
-re:			fclean all
-
-.PHONY:		all clean fclean re test
-
 
