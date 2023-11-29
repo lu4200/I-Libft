@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 13:26:05 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/11 16:03:53 by lucas            ###   ########.fr       */
+/*   Updated: 2023/11/29 18:56:04 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ char *ft_strtrim(char const *s1, char const *set)
 #include <stdio.h>
 int main ()
 {
-    char const *s1 = "B^on,jou!r L!uca^^s!!!!!";
-    char const *set = ",^!";
+    char const *s1 = "<Hello zzz everyone!>";
+    char const *set = "z ";
     printf("%s", ft_strtrim(s1, set));
     return 0;
 }*/

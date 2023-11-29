@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:49:27 by lucas             #+#    #+#             */
-/*   Updated: 2023/11/28 15:02:19 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/29 18:55:37 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ char	*ft_itoa(int n)
 	ft_strrev(tab);
 	return (tab);
 }
+/*
 #include <stdio.h>
 int main() {
 	
@@ -84,4 +85,4 @@ int main() {
     printf("Le nombre en tant que chaîne de caractères : %s\n", ft_itoa(number));
 
     return 0;
-}
+}*/

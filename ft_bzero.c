@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:37:36 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/09 10:53:12 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/29 19:17:16 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ void    ft_bzero(void *s, size_t n)
         size_t i;
     
         i = 0;
-        while(i <= n)
+        if (n > 0)
         {
-                *(unsigned char *)(s + i) = '\0';
-                i++;
+                while(i < n)
+                {
+                        *(unsigned char *)(s + i) = '\0';
+                        i++;
+                }
         }
 }
 
