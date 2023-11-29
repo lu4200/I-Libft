@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 19:24:06 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/08 19:32:35 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/29 17:31:32 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void ft_putendl_fd(char *s, int fd)
     while(s[i])
     {
         write(fd, &s[i], 1);
+        i++;
     }
-    write (fd, '\n', 1);
+    write (fd, "\n", 1);
 }

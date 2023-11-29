@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:07:03 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/28 16:12:13 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/29 17:48:17 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int     ft_isdigit(int c);
 int     ft_isascii(int c);
 int     ft_isprint(int character );
 void    ft_bzero(void *s, size_t n);
-int     ft_strlen(char *str);
+int     ft_strlen(const char *str);
 char*   ft_strchr(const char *s, int sChar );
 int     ft_toupper(int c);
 int     ft_tolower(int c);
@@ -61,6 +61,8 @@ void    ft_lstdelone(t_list *lst, void (*del)(void *));
 void    ft_lstclear(t_list **lst, void (*del)(void *));
 void    ft_lstadd_back(t_list **lst, t_list *new);
 t_list* ft_lstlast(t_list *lst);
-
+t_list	*ft_lstnew(void *content);
+int	    ft_islower(int c);
+int	    ft_isupper(int c);
 
 #endif

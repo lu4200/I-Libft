@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 16:37:49 by lucas             #+#    #+#             */
-/*   Updated: 2023/11/28 15:01:47 by lumaret          ###   ########.fr       */
+/*   Created: 2023/08/20 16:37:49 by lucas             #+#    #+#             */
+/*   Updated: 2023/11/29 18:01:18 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int static	is_sep(char c, char *charset)
+static int is_sep(char c, char *charset)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int static	is_sep(char c, char *charset)
 	return (0);
 }
 
-int	static count_size(char *str, char *charset)
+static int count_size(char *str, char *charset)
 {
 	int	i;
 	int	sep;
@@ -44,7 +44,7 @@ int	static count_size(char *str, char *charset)
 	return (count);
 }
 
-int static next_split(char *str, char *charset)
+static int next_split(char *str, char *charset)
 {
 	int	i;
 
@@ -58,7 +58,7 @@ int static next_split(char *str, char *charset)
 	return (i);
 }
 
-char static *ft_strndup(char *str, unsigned int n)
+char *ft_strndup(char *str, unsigned int n)
 {
 	unsigned int	i;
 	char			*new;

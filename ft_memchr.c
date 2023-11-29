@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 19:02:58 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/09 10:49:50 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/29 17:04:21 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void * ft_memchr(const void * memoryBlock,int searchedChar,size_t size)
     while (i < size)
     {
         if (block[i] == searchedChar)
-            return(&block[i])
+            return((void *)(memoryBlock + i));
         i++;
     }
     return (NULL);

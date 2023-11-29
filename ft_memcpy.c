@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:58:34 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/13 11:36:02 by lucas            ###   ########.fr       */
+/*   Updated: 2023/11/29 17:03:14 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void* ft_memcpy(void *dst, const void *src, size_t len)
 {
     size_t i;
+
+    i = 0;
     if (dst || src)
     {
         while (i < len)

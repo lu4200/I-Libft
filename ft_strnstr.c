@@ -6,15 +6,15 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:29:39 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/10 13:08:34 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/29 17:21:23 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 char *strnstr(const char *haystack, const char *needle, size_t len)
 {
-    int index_meule;
-    int index_aiguille;
+    size_t index_meule;
+    size_t index_aiguille;
 
     index_meule = 0;
     index_aiguille = 0;
@@ -24,7 +24,8 @@ char *strnstr(const char *haystack, const char *needle, size_t len)
     while (haystack[index_meule] && (index_meule + index_aiguille <= len))
     {
         if (needle[index_aiguille] != '\0' && 
-        haystack[index_meule + index_aiguille] = needle[index_aiguille]);
+        haystack[index_meule + index_aiguille] 
+        == needle[index_aiguille])
         {
             index_aiguille++;
         }
