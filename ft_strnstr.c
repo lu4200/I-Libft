@@ -6,12 +6,12 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:29:39 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/29 17:21:23 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:29:01 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-char *strnstr(const char *haystack, const char *needle, size_t len)
+char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
     size_t index_meule;
     size_t index_aiguille;

@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:07:03 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/29 18:36:26 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:31:03 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int     ft_isdigit(int c);
 int     ft_isascii(int c);
 int     ft_isprint(int character );
 void    ft_bzero(void *s, size_t n);
-int     ft_strlen(const char *str);
+size_t     ft_strlen(const char *str);
 char*   ft_strchr(const char *s, int sChar );
 int     ft_toupper(int c);
 int     ft_tolower(int c);
@@ -38,7 +38,7 @@ int     ft_atoi(const char *str);
 int     ft_strncmp(const char *s1, const char *s2, size_t n);
 void    ft_putchar_fd(char c, int fd);
 size_t  ft_strlcpy(char* dest, const char* src, size_t size);
-int     ft_strlcat(char *dst, const char *src, size_t size);
+size_t     ft_strlcat(char *dst, const char *src, size_t size);
 void*   ft_memmove(void * dest, const void * src, size_t size);
 void    ft_putstr_fd(char *s, int fd);
 char*   ft_itoa(int n);
@@ -62,7 +62,7 @@ void    ft_lstclear(t_list **lst, void (*del)(void *));
 void    ft_lstadd_back(t_list **lst, t_list *new);
 t_list* ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(void *content);
-int	    ft_islower(int c);
-int	    ft_isupper(int c);
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void    ft_lstiter(t_list *lst, void (*f)(void *));
 
 #endif

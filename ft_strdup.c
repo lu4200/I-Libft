@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 15:50:59 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/29 19:26:07 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/30 13:33:05 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@ char *ft_strdup(const char *str1)
 	char *dest;
 	int	lendest;
     size_t i;
-		lendest = ft_strlen((char *)str1);
-		dest = malloc(sizeof(char) * lendest + 1);
-		if (!dest)
-			return (NULL);
-		if (str1)
+
+	lendest = ft_strlen(str1);
+	dest = malloc(sizeof(char) * lendest + 1);
+	if (!dest)
+		return (NULL);
+	if (str1 || dest)	
+	{
+		i = 0;
+		while (str1[i])
 		{
-			i = 0;
-			while (str1)
-			{
-				dest[i] = str1[i];
-				i++;
-			}
-			return (dest);
+			dest[i] = str1[i];
+			i++;
 		}
-	return (NULL);
+		dest[i] = '\0';
+		return (dest);
+	}
+	return NULL;
 }

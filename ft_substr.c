@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:08:53 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/10 13:07:19 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/30 14:16:26 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
     char *mem;
     
     i = 0;
-    mem = (char *)malloc(sizeof(char) * len + 1);
+    if (!s)
+        return (NULL);
+    if (start >= ft_strlen(s))
+        return (ft_strdup(""));
+    if (start + len > ft_strlen(s))
+        len = ft_strlen(s + start);
+    mem = ft_calloc(len + 1, sizeof(char));
     if (!mem)
         return (NULL);
-    while(i < len && s[start])
-    {
-        mem[i] = s[start];
-        i++;
-        start++;
-    }
-    mem[i] = '\0';
-    return(mem);
+    ft_strlcpy(mem, s + start, len + 1);
+    return (mem);
+   
 }
 /*
 #include <stdio.h>

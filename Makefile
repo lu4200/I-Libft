@@ -6,7 +6,7 @@
 #    By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 13:29:33 by lumaret           #+#    #+#              #
-#    Updated: 2023/11/29 18:40:41 by lumaret          ###   ########.fr        #
+#    Updated: 2023/11/30 15:32:26 by lumaret          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,9 @@ RM		= 	rm -f
 .c.o:
 			$(CC) $(CFLAGS) -o $(<:.c=.o) -c $<
 
-so:
-		$(CC) -nostartfiles -fPIC -c $(CFLAGS) $(SRCS)
-		cc -nostartfiles -shared -o libft.so $(OBJS) -ldl
+#so:
+#		$(CC) -nostartfiles -fPIC -c $(CFLAGS) $(SRCS)
+#		cc -nostartfiles -shared -o libft.so $(OBJS) -ldl
 
 $(NAME):	$(OBJS)
 			$(AR) $(NAME) $(OBJS)

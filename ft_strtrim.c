@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 13:26:05 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/29 18:56:04 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/30 15:07:47 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,34 +26,31 @@ static int is_in_set(char c, char const *set)
 }
 char *ft_strtrim(char const *s1, char const *set)
 {
-    int i;
-    int j;
+    size_t i;
+    size_t j;
     char *new;
-    int len;
+    size_t len;
     
-    len = ft_strlen((char *)s1);
+    if (!s1 || !set)
+        return (NULL);
     i = 0;
-    j = 0;
-    while(s1[i] != '\0')
-    {
-        if (is_in_set(s1[i], set))
-            len --;
+    len = ft_strlen(s1);
+    while(s1[i] != '\0' && is_in_set(s1[i], set))
         i++;
+    if (i < len)
+    {
+        j = len - 1;
+        while (is_in_set(s1[j], set))
+            j--;
+        len = j + 1 - (i);
     }
-    new = malloc(sizeof(char) * len);
+    else 
+        return(ft_strdup(""));
+    new = malloc(sizeof(char) * len + 1);
     if (!new)
         return (NULL);
-    i = -1;
-    while(s1[++i])
-    {
-        if(is_in_set(s1[i], set) == 0)
-        {
-            new[j] = s1[i];
-            j++;
-        }
-    }
-    new[j] = '\0';
-    return (new);
+    ft_strlcpy(new, &s1[i], len + 1);
+    return(new);
 }
 /*
 #include <stdio.h>

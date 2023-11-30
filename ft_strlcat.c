@@ -6,34 +6,37 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:54:03 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/09 16:46:18 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/30 14:30:06 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strlcat(char *buffer, const char *src, size_t sizeTbuffer)
+
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-    size_t i;
-    size_t j;
-    size_t destsize;
-    size_t srcsize;
+	size_t	srcsize;
+	size_t	i;
+	size_t	j;
 
-    destsize = ft_strlen(buffer);
-    srcsize = ft_strlen((char *)src);
-
-    i = 0;
-    while (buffer[i] != '\0')
-        i++;
-    j = 0;
-    while(src[i] && i < sizeTbuffer - 1)
-    {
-        buffer[i] = src[j];
-        i++;
-        j++;
-    }
-    buffer[i] = '\0';
-    return(srcsize + destsize);
+	srcsize = 0;
+	while (src[srcsize])
+		srcsize++;
+	if (size == 0)
+		return (srcsize);
+	i = 0;
+	while (dst[i])
+		i++;
+	if (size < i)
+		return (size + srcsize);
+	j = 0;
+	while (i + j < size - 1 && src[j])
+	{
+		dst[i + j] = src[j];
+		j++;
+	}
+	dst[i + j] = '\0';
+	return (i + srcsize);
 }
 
 /*
