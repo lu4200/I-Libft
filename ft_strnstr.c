@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 13:29:39 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/30 15:29:01 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:18:57 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 
     index_meule = 0;
     index_aiguille = 0;
-    
-    if (!needle)
-        return ((char *)haystack);
-    while (haystack[index_meule] && (index_meule + index_aiguille <= len))
+    if (!needle[0])
+        return ((char*)haystack);
+    if (len == 0)
+        return (NULL);
+    while ((index_meule + index_aiguille <= len) && haystack[index_meule] && 
+    haystack[index_meule])
     {
         if (needle[index_aiguille] != '\0' && 
         haystack[index_meule + index_aiguille] 

@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:07:03 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/30 15:31:03 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/01 16:00:26 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char*   ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char*   ft_substr(char const *s, unsigned int start, size_t len);
 char*   ft_strtrim(char const *s1, char const *set);
 int     ft_lstsize(t_list *lst);
-char**  ft_split(char *str, char *charset);
+char    **ft_split(const char *str, char sep);
 void    ft_lstdelone(t_list *lst, void (*del)(void *));
 void    ft_lstclear(t_list **lst, void (*del)(void *));
 void    ft_lstadd_back(t_list **lst, t_list *new);

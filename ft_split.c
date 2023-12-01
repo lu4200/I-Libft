@@ -6,115 +6,85 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 16:37:49 by lucas             #+#    #+#             */
-/*   Updated: 2023/11/29 18:01:18 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/01 15:55:08 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int is_sep(char c, char *charset)
+static int	ft_word_count(char const *s, char c)
 {
-	int	i;
+	int			word;
+	char const	*str;
 
-	i = 0;
-	while (charset[i])
+	word = 0;
+	str = s;
+	while (*str)
 	{
-		if (c == charset[i])
-			return (1);
-		i++;
+		if (*str != c)
+		{
+			word++;
+			while (*str != c && *(str + 1) != '\0')
+				str++;
+		}
+		str++;
 	}
-	return (0);
+	return (word);
 }
 
-static int count_size(char *str, char *charset)
+static int	ft_letter_count(char const *s, char c)
 {
-	int	i;
-	int	sep;
-	int	count;
+	int			letter;
+	char const	*str;
 
-	i = 0;
-	count = 0;
-	while (str[i])
-	{
-		sep = is_sep(str[i], charset);
-		if ((i == 0 && !sep) || (i > 0 && !sep && is_sep(str[i - 1], charset)))
-			count++;
-		i++;
-	}
-	return (count);
+	letter = 0;
+	str = s;
+	while (*str == c && *str)
+		str++;
+	while (*str != c && *str++)
+		letter++;
+	return (letter);
 }
 
-static int next_split(char *str, char *charset)
+static char	*ft_clean(char **tab, int i)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	while (i > 0)
 	{
-		if (is_sep(str[i], charset))
-			return (i);
-		i++;
+		free(tab[i]);
+		i--;
 	}
-	return (i);
+	free(tab);
+	return (NULL);
 }
 
-char *ft_strndup(char *str, unsigned int n)
+char	**ft_split(char const *s, char c)
 {
-	unsigned int	i;
-	char			*new;
-
-	i = 0;
-	while (str[i] && i < n)
-		i++;
-	new = (char *)malloc(sizeof(char) * (i + 1));
-	if (!new)
-		return (NULL);
-	i = 0;
-	while (str[i] && i < n)
-	{
-		new[i] = str[i];
-		i++;
-	}
-	new[i] = '\0';
-	return (new);
-}
-
-char	**ft_split(char *str, char *charset)
-{
-	int		size;
+	char	**t;
+	char	*tab;
 	int		i;
-	int		len;
-	char	**strs;
-
-	size = count_size(str, charset);
-	strs = (char **)malloc(sizeof(char *) * (size + 1));
-	strs[size] = NULL;
-	if (!strs)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		while (is_sep(*str, charset))
-			str++;
-		len = next_split(str, charset);
-		strs[i] = ft_strndup(str, len);
-		str += len;
-		i++;
-	}
-	return (strs);
+    if (s != NULL)
+    {
+        i = 0;
+        t = (char **)malloc(sizeof(char *) * (ft_word_count(s, c) + 1));
+        if (!s || t == NULL)
+            return ((char **)ft_clean(t, i));
+        while (*s)
+        {
+            if (*s != c)
+            {
+                tab = (char *)malloc(sizeof(char) * ft_letter_count(s, c) + 1);
+                if (tab == NULL)
+                    return (NULL);
+                ft_strlcpy(tab, s, ft_letter_count(s, c) + 1);
+                *t++ = tab;
+                i++;
+                while (*s != c && *(s + 1) != '\0')
+                    s++;
+            }
+            s++;
+        }
+        *t = 0;
+        return (t - i);
+    }
+    return NULL;
 }
-
-/*#include <stdio.h>
-int	main(int ac, char **av)
-{
-	if (ac != 3)
-		return (1);
-	char	**s = ft_split(av[1], av[2]);
-	int i = 0;
-	while (s[i])
-	{
-		printf("%s\n", s[i]);
-		i++;
-	}
-	return (0);
-}*/
