@@ -6,23 +6,15 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:13:49 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/30 15:27:12 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/13 19:19:54 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if (c >= '0' && c <= '9')
-        return(1);
-    return (0);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
-
-/*
-#include <stdio.h>
-int main()
-{
-    printf("%d", ft_isdigit('8'));
-     return 0;
-}*/

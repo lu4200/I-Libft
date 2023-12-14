@@ -6,12 +6,11 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:54:03 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/30 14:30:06 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/14 16:38:46 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -38,16 +37,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[i + j] = '\0';
 	return (i + srcsize);
 }
-
-/*
-#include <stdio.h>
-#include <bsd/string.h>
-int main()
-{
-    char buffer[200] = "";
-    char src[200] = "";
-    size_t sizeTbuffer = 11;
-
-    printf("%d", ft_strlcat(buffer, src, sizeTbuffer));
-    return 0;
-}*/

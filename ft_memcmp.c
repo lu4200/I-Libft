@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 19:11:31 by lumaret           #+#    #+#             */
-/*   Updated: 2023/11/10 13:04:47 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/14 16:34:43 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = -1;
 	while (++i < n)

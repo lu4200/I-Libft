@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 13:49:50 by lucas             #+#    #+#             */
-/*   Updated: 2023/11/29 18:37:46 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/14 16:35:40 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t  i;
+	size_t	i;
 
 	i = 0;
 	while (i < len)
@@ -24,4 +24,3 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
-
