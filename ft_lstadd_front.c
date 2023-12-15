@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:40:31 by lumaret           #+#    #+#             */
-/*   Updated: 2023/12/14 16:29:29 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:48:00 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	new->next = *alst;
-	*alst = new;
+	if (!alst || !new)
+		return ;
+	{
+		new->next = *alst;
+		*alst = new;
+	}
 }

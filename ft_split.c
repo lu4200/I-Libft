@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 16:37:49 by lucas             #+#    #+#             */
-/*   Updated: 2023/12/14 18:41:38 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/15 16:16:48 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,19 @@ static int	ft_letter_count(char const *s, char c)
 	return (letter);
 }
 
-static char	*ft_clean(char **tab, int i)
+static char	**ft_clean(char **t, char *tab, int i)
 {
-	while (i > 0)
+	if (!t)
+		return (NULL);
 	{
-		free(tab[i]);
-		i--;
+		while (i > 0)
+		{
+			free(t[i]);
+			i--;
+		}
 	}
 	free(tab);
+	free(t);
 	return (NULL);
 }
 
@@ -63,19 +68,20 @@ char	**ft_split(char const *s, char c)
 	char	*tab;
 	int		i;
 
+	tab = NULL;
 	if (s != NULL)
 	{
 		i = 0;
 		t = (char **)malloc(sizeof(char *) * (ft_word_count(s, c) + 1));
 		if (!s || t == NULL)
-			return ((char **)ft_clean(t, i));
+			return ((char **)ft_clean(t, tab, i));
 		while (*s)
 		{
 			if (*s != c)
 			{
 				tab = (char *)malloc(sizeof(char) * ft_letter_count(s, c) + 1);
-				if (tab == NULL)
-					return (NULL);
+				if (!tab)
+					return (ft_clean(t, tab, i));
 				ft_strlcpy(tab, s, ft_letter_count(s, c) + 1);
 				*t++ = tab;
 				i++;

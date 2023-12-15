@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 15:58:54 by lumaret           #+#    #+#             */
-/*   Updated: 2023/12/14 16:47:49 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:48:30 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
+	if (!lst || !new)
+		return ;
 	if (*lst)
 	{
 		tmp = ft_lstlast(*lst);

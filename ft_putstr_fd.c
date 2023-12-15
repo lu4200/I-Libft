@@ -6,17 +6,22 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:36:21 by lumaret           #+#    #+#             */
-/*   Updated: 2023/12/14 16:36:28 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:33:32 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
+	size_t	len;
 
-	i = -1;
-	while (s[i++])
-		write(fd, &s[i], 1);
+	if (!s)
+		return ;
+	len = 0;
+	while (s[len])
+		len++;
+	write(fd, s, len);
 }
+

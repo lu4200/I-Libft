@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:07:03 by lumaret           #+#    #+#             */
-/*   Updated: 2023/12/14 17:38:28 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:01:28 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct s_list
 {
-	void		*content;
+	void	*content;
 	struct s_list	*next;
 }	t_list;
 

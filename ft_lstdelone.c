@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 15:04:40 by lumaret           #+#    #+#             */
-/*   Updated: 2023/12/14 17:04:27 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/15 15:49:09 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
+	if (! lst)
+		return ;
 	if (del)
 	{
 		del((lst)->content);
