@@ -6,92 +6,82 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 16:37:49 by lucas             #+#    #+#             */
-/*   Updated: 2023/12/15 16:16:48 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/15 16:58:08 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_word_count(char const *s, char c)
+static size_t	ft_countword(char const *str, char characters)
 {
-	int			word;
-	char const	*str;
+	size_t	count;
+	size_t	i;
 
-	word = 0;
-	str = s;
-	while (*str)
+	count = 0;
+	i = 0;
+	while (str[i])
 	{
-		if (*str != c)
+		if (str[i] != characters)
 		{
-			word++;
-			while (*str != c && *(str + 1) != '\0')
-				str++;
-		}
-		str++;
-	}
-	return (word);
-}
-
-static int	ft_letter_count(char const *s, char c)
-{
-	int			letter;
-	char const	*str;
-
-	letter = 0;
-	str = s;
-	while (*str == c && *str)
-		str++;
-	while (*str != c && *str++)
-		letter++;
-	return (letter);
-}
-
-static char	**ft_clean(char **t, char *tab, int i)
-{
-	if (!t)
-		return (NULL);
-	{
-		while (i > 0)
-		{
-			free(t[i]);
-			i--;
-		}
-	}
-	free(tab);
-	free(t);
-	return (NULL);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**t;
-	char	*tab;
-	int		i;
-
-	tab = NULL;
-	if (s != NULL)
-	{
-		i = 0;
-		t = (char **)malloc(sizeof(char *) * (ft_word_count(s, c) + 1));
-		if (!s || t == NULL)
-			return ((char **)ft_clean(t, tab, i));
-		while (*s)
-		{
-			if (*s != c)
-			{
-				tab = (char *)malloc(sizeof(char) * ft_letter_count(s, c) + 1);
-				if (!tab)
-					return (ft_clean(t, tab, i));
-				ft_strlcpy(tab, s, ft_letter_count(s, c) + 1);
-				*t++ = tab;
+			count++;
+			while (str[i] && str[i] != characters)
 				i++;
-				while (*s != c && *(s + 1) != '\0')
-					s++;
-			}
-			s++;
 		}
-		*t = 0;
-		return (t - i);
+		else if (str[i] == characters)
+			i++;
 	}
-	return (NULL);
+	return (count);
+}
+
+static size_t	ft_countletter(char const *str, char characters)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] && str[i] != characters)
+		i++;
+	return (i);
+}
+
+static char	**split(char const *str, char characters, char **array,
+		size_t words_count)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (i < words_count)
+	{
+		while (str[j] && str[j] == characters)
+			j++;
+		array[i] = ft_substr(str, j, ft_countletter(&str[j], characters));
+		if (!array[i])
+		{
+			while (i > 0)
+				free(array[i--]);
+			free(array[0]);
+			return (NULL);
+		}
+		while (str[j] && str[j] != characters)
+			j++;
+		i++;
+	}
+	array[i] = NULL;
+	return (array);
+}
+
+char	**ft_split(char const *str, char characters)
+{
+	char	**tab;
+	size_t	words;
+
+	if (!str)
+		return (NULL);
+	words = ft_countword(str, characters);
+	tab = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!tab)
+		return (NULL);
+	tab = split(str, characters, array, words);
+	return (tab);
 }

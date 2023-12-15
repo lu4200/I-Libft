@@ -6,7 +6,7 @@
 #    By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 13:29:33 by lumaret           #+#    #+#              #
-#    Updated: 2023/12/15 16:50:19 by lumaret          ###   ########.fr        #
+#    Updated: 2023/12/15 17:00:29 by lumaret          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,6 @@ RM		= 	rm -f
 
 .c.o:
 			$(CC) $(CFLAGS) -o $(<:.c=.o) -c $<
-
 	
 $(NAME):	$(OBJS)
 			$(AR) $(NAME) $(OBJS)
@@ -63,4 +62,8 @@ clean:
 
 fclean:		clean
 			$(RM) $(NAME) $(TNAME)
+
+re:	fclean all
+
+.PHONY: all clean fclean re bonus
 
