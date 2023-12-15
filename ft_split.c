@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 16:37:49 by lucas             #+#    #+#             */
-/*   Updated: 2023/12/15 16:58:08 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/15 17:02:05 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,6 @@ char	**ft_split(char const *str, char characters)
 	tab = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!tab)
 		return (NULL);
-	tab = split(str, characters, array, words);
+	tab = split(str, characters, tab, words);
 	return (tab);
 }
