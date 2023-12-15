@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:19:37 by lumaret           #+#    #+#             */
-/*   Updated: 2023/12/14 17:26:08 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/15 17:05:38 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int		i;
-	int		newlen;
-	char		*new;
+	char	*new;
+	size_t	newlen;
+	size_t	i;
 
 	if (s == NULL || f == NULL)
 		return (NULL);
