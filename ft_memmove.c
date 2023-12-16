@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:06:53 by lumaret           #+#    #+#             */
-/*   Updated: 2023/12/14 16:28:41 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/16 19:09:24 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memmove(void *dest, const void *src, size_t size)
 {
 	int	i;
 
+	if (!dest && !src)
+		return (NULL);
 	if (dest > src)
 	{
 		i = (int)size - 1;

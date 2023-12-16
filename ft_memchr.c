@@ -6,23 +6,21 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 19:02:58 by lumaret           #+#    #+#             */
-/*   Updated: 2023/12/15 18:33:49 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/16 15:56:19 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t		i;
-	const char	*block;
+	size_t	i;
 
 	i = 0;
-	block = (const char *)memoryBlock;
-	while (i < size)
+	while (n > 0 && i < n)
 	{
-		if (*((unsigned char *)block + i) == searchedChar)
-			return ((void *)(memoryBlock + i));
+		if (*((unsigned char *)s + i) == (unsigned char)c)
+			return ((void *)s + i);
 		i++;
 	}
 	return (NULL);
