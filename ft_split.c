@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 16:37:49 by lucas             #+#    #+#             */
-/*   Updated: 2023/12/15 17:02:05 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/17 14:32:08 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ static char	**split(char const *str, char characters, char **array,
 		array[i] = ft_substr(str, j, ft_countletter(&str[j], characters));
 		if (!array[i])
 		{
-			while (i > 0)
+			while (i >= 0)
 				free(array[i--]);
-			free(array[0]);
+			free(array);
 			return (NULL);
 		}
 		while (str[j] && str[j] != characters)
