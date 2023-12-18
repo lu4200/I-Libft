@@ -6,7 +6,7 @@
 /*   By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 16:37:49 by lucas             #+#    #+#             */
-/*   Updated: 2023/12/17 14:32:08 by lumaret          ###   ########.fr       */
+/*   Updated: 2023/12/18 15:58:15 by lumaret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static size_t	ft_countletter(char const *str, char characters)
 	return (i);
 }
 
-static char	**split(char const *str, char characters, char **array,
+static char	**spliit(char const *str, char characters, char **array,
 		size_t words_count)
 {
 	size_t	i;
@@ -58,9 +58,9 @@ static char	**split(char const *str, char characters, char **array,
 		array[i] = ft_substr(str, j, ft_countletter(&str[j], characters));
 		if (!array[i])
 		{
-			while (i >= 0)
+			while (i > 0)
 				free(array[i--]);
-			free(array);
+			free(array[0]);
 			return (NULL);
 		}
 		while (str[j] && str[j] != characters)
@@ -82,6 +82,6 @@ char	**ft_split(char const *str, char characters)
 	tab = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!tab)
 		return (NULL);
-	tab = split(str, characters, tab, words);
+	tab = spliit(str, characters, tab, words);
 	return (tab);
 }

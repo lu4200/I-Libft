@@ -6,7 +6,7 @@
 #    By: lumaret <lumaret@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 13:29:33 by lumaret           #+#    #+#              #
-#    Updated: 2023/12/16 19:12:05 by lumaret          ###   ########.fr        #
+#    Updated: 2023/12/18 16:34:15 by lumaret          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,19 +21,15 @@ SRCS	=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memchr.c \
 BONUS	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 			ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-MAIN	=	main.c
-
 OBJB	=	$(BONUS:.c=.o)
 
 OBJM	=	$(MAIN:.c=.o)
-
-TNAME	= 	test
 
 OBJS 	= 	$(SRCS:.c=.o)
 
 NAME	= 	libft.a
 
-CC = clang
+CC = cc
 
 CFLAGS	= 	-Wall -Wextra -Werror
 
@@ -46,9 +42,6 @@ RM		= 	rm -f
 
 $(NAME):	$(OBJS)
 	$(AR) $(NAME) $(OBJS)
-
-test:		$(NAME) bonus
-	$(CC) $(CFLAGS) -o $(TNAME) $(MAIN) -L. -lft
 
 all:		$(NAME)
 
